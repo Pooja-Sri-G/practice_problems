@@ -23,12 +23,15 @@ class Employee{
 	}
 	
 	void display() {
-		System.out.println("Employee ID = "+e_id);
-		System.out.println("Employee Name = "+name);
-		System.out.println("Basic Salary = = "+basic);
-		System.out.println("Gross salary = "+gross);
-		System.out.println("Net Salary = "+net);
-		
+	    System.out.println("Employee ID = " + e_id);
+	    System.out.println("Employee Name = " + name);
+	    System.out.println("Basic Salary = " + basic);
+	    System.out.println("HRA = " + hra);
+	    System.out.println("DA = " + da);
+	    System.out.println("Bonus = " + bonus);
+	    System.out.println("Tax = " + tax);
+	    System.out.println("Gross Salary = " + gross);
+	    System.out.println("Net Salary = " + net);
 	}
 	
 }
