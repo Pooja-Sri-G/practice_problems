@@ -1,0 +1,112 @@
+package classProblems;
+
+import java.util.*;
+import java.lang.*;
+class InvalidMarkException extends RuntimeException{
+	public InvalidMarkException(String str) {
+		super(str);
+	}
+}
+
+class InsufficientMarkException extends RuntimeException{
+	InsufficientMarkException(String atr){
+		super(atr);
+	}
+}
+
+class ArrayException extends Exception{
+	ArrayException(String err){
+		super(err);
+	}
+}
+
+class InvalidPasswordException extends RuntimeException{
+	InvalidPasswordException(String err){
+		super(err);
+	}
+}
+
+class IncorrectPasswordException extends RuntimeException{
+	IncorrectPasswordException(String err){
+		super(err);
+	}
+}
+public class CustomExceptionSample2 {
+
+	static void marks() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter number of subjects : ");
+		int n = sc.nextInt();
+		
+		int[] marks = new int[n];
+
+		/*if(n > 5) {
+			throw new ArrayException("No of  Elements must be less than 5");
+		}*/
+		try {
+			
+			if(n > 5) {
+				throw new ArrayException("No of  Elements must be less than 5");
+			}
+			
+			for(int i=0;i<n;i++) {
+				marks[i] = sc.nextInt();
+			}
+			int sum = 0;
+			
+			
+			for(int m:marks) {
+				if(m > 100) {
+					throw new InvalidMarkException("Marks cannot be greater than 100");
+				}
+				if(m < 0) {
+					throw new InsufficientMarkException("Marks cannot be negative");
+				}
+				
+				sum += m;
+			}
+			System.out.println("Average marks = "+(sum/5));
+		}catch(Exception e){
+			System.out.println(e);
+		}
+
+	}
+	static void password(){
+		Scanner input = new Scanner(System.in);
+		String password = "Srec@123";
+		String p = input.nextLine();
+
+
+		boolean charac = false;
+		boolean dig = false;
+		boolean spec = false;
+		
+		for(char c: p.toCharArray()) {
+			if(Character.isLetter(c)) {
+				charac = true;
+			}else if(Character.isDigit(c)) {
+				dig = true;
+			}else {
+				spec = true;
+			}
+		}
+		
+		if((p.length() >= 8) && charac && dig && spec) {
+			if(p.equals(password)) {
+				System.out.println("Logged in successfully");
+			}else {
+				throw new IncorrectPasswordException("Incorrect Password");
+			}
+		}else {
+			throw new InvalidPasswordException("Invalid password");
+		}
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		marks();
+		password();
+		
+	}
+
+}

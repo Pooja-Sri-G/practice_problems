@@ -1,0 +1,109 @@
+package classProblems;
+
+import java.util.*;
+
+public class CollectionExamples {
+
+	static void bubbleSort() {
+		List<Integer> list = new ArrayList<>();
+		Scanner sc = new Scanner (System.in);
+		
+		while(true) {
+			int ele = sc.nextInt();
+			if(ele == -1) {
+				break;
+			}
+			list.add(ele);
+		}
+		for(int i=0;i<list.size()-1;i++) {
+			for(int j=i;j<list.size();j++) {
+				if(list.get(i) > list.get(j)) {
+					int temp = list.get(i);
+					list.set(i, list.get(j));
+					list.set(j, temp);
+				}
+			}
+		}
+		System.out.println("Bubble sort:");
+		for(int num:list) {
+			System.out.print(num + " ");
+		}
+		sc.close();
+	}
+	
+	// Sliding window
+	static void arraySegregate1() {
+		List<Integer> list = new ArrayList<>();
+		Scanner sc = new Scanner (System.in);
+		
+		while(true) {
+			int ele = sc.nextInt();
+			if(ele == -1) {
+				break;
+			}
+			list.add(ele);
+		}
+		int c = 0;
+		int s = 0;
+		int n = list.size();
+		while(s < n) {
+			if(list.get(s)%10 != 0) {
+				int temp = list.get(s);
+				int i = s;
+				while(i > c) {
+					list.set(i, list.get(i-1));
+					i--;
+				}
+				list.set(c, temp);
+				c++;
+			}
+			s++;
+			
+		}
+		
+		System.out.println("Sliding Window:");
+		for(int num:list) {
+			System.out.print(num+" ");
+		}
+	}
+	// Swapping
+	static void arraySegregate2() {
+		List<Integer> list = new ArrayList<>();
+		Scanner sc = new Scanner (System.in);
+		
+		while(true) {
+			int ele = sc.nextInt();
+			if(ele == -1) {
+				break;
+			}
+			list.add(ele);
+		}
+		int c = 0;
+		int s = 0;
+		int n = list.size();
+		
+		while(s < n) {
+			if(list.get(s)%10 != 0) {
+				int temp = list.get(c);
+				list.set(c, list.get(s));
+				list.set(s, temp);
+				c++;
+			}
+			s++;
+		}
+
+		System.out.println("Swapping :");
+		for(int num:list) {
+			System.out.print(num+" ");
+		}
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		bubbleSort();
+		arraySegregate1();
+		arraySegregate2();
+	}
+
+}
