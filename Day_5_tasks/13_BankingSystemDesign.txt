@@ -1,0 +1,120 @@
+package day_5_tasks;
+
+class Banking{
+
+	private int accountNumber;
+    private String accountHolderName;
+    private String mobileNumber;
+    private String accountType;
+    private double balance;
+    private String bankName;
+	
+	Banking(int accno, String name, String no, String type, double bal, String bname){
+		accountNumber = accno;
+		accountHolderName = name;
+		mobileNumber = no;
+		accountType = type;
+		balance = bal;
+		bankName = bname;
+	}
+
+    int getAccNo() {
+    	return accountNumber;
+    }
+    
+    String getname() {
+    	return accountHolderName;
+    }
+    
+    String getMobile() {
+    	 return mobileNumber;
+    }
+    
+    String getType() {
+    	return accountType;
+    }
+    
+    double getBalance() {
+    	return balance;
+    }
+    
+    void setMobileNumber(String no) {
+    	mobileNumber = no;
+    }
+    
+    void deposit(double amt) {
+		try {
+			if(amt < 0) {
+				throw new InvalidAmountException("Negative amount cannot be deposited");
+			}
+		}catch(Exception e) {
+			System.out.println("\n"+e);
+		}
+		balance += amt;
+		System.out.println("\nAmount deposited = "+amt);
+		System.out.println("Account Balance = "+balance);
+	}
+
+	void withdraw(double amt) {
+		
+		try {
+			if(amt < 0) {
+				throw new InvalidAmountException("Negative amount cannot be withdrawn");
+			}
+			if(amt > balance) {
+				throw new InvalidAmountException("Insufficient Balance");
+			}
+		}catch(Exception e) {
+			System.out.println("\n"+e);
+		}
+		if(amt < balance) {
+			balance -= amt;
+			System.out.println("\nAmount Withdrawn = "+amt);
+			System.out.println("Account Balance = "+balance);
+			
+		}
+		
+	}
+	
+
+
+	void display() {
+		System.out.println("\nAccount Number = "+accountNumber);
+		System.out.println("Account Holder Name = "+accountHolderName);
+		System.out.println("Mobile Number = "+mobileNumber);
+		System.out.println("Account Type = "+accountType);
+		System.out.println("Balance = "+balance);
+		System.out.println("Bank Name = "+bankName);
+	}
+	
+}
+public class BankingSystemDesign {
+
+	static String bankName = "Mariamman Indian Bank";
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+
+		Banking b1 = new Banking(001,"Arun","9876542318","Savings",87600,bankName);
+		Banking b2 = new Banking(1003,"Uma","9876542312","Savings",70600,bankName);
+		Banking b3 = new Banking(1002,"Kumar","9234567890","Savings",94000,bankName);
+		
+		
+		
+		b1.setMobileNumber("8765432189");
+		System.out.println("Changed Mobile Number = "+b1.getMobile());
+		
+		b2.deposit(6700);
+
+		b3.withdraw(89000);
+		
+		b1.deposit(-9876);
+		b2.withdraw(-900);
+		b1.display();
+		b2.display();
+		b3.display();
+		
+		
+	}
+
+}
