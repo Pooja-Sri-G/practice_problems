@@ -1,20 +1,20 @@
 package day_5_tasks;
 
-class AccountInformation{
+class BankAccounts{
 	int accountNumber;
 	String accountHolderName;
 	long mobileNumber;
 	String accountType;
 	double balance;
 	
-	AccountInformation(int accno, String name, long no, String type, double bal){
+	BankAccounts(int accno, String name, long no, String type, double bal){
 		accountNumber = accno;
 		accountHolderName = name;
 		mobileNumber = no;
 		accountType = type;
 		balance = bal;
 	}
-	
+
 	void display() {
 		System.out.println("\nAccount Number = "+accountNumber);
 		System.out.println("Account Holder Name = "+accountHolderName);
@@ -23,21 +23,20 @@ class AccountInformation{
 		System.out.println("Balance = "+balance);
 	}
 }
-public class CustomerAccountInformation {
+public class ConstructorRequirement {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		AccountInformation[] list = new AccountInformation[] {
-				new AccountInformation(1001,"Arun",9876542318l,"Savings",87600),
-				new AccountInformation(1002,"Kumar",9234567890l,"Savings",87600),
-				new AccountInformation(1003,"Uma",9876542312l,"Savings",87600),
+		BankAccounts[] list = new BankAccounts[] {
+				new BankAccounts(1001,"Arun",9876542318l,"Savings",87600),
+				new BankAccounts(1002,"Kumar",9234567890l,"Savings",98000),
+				new BankAccounts(1003,"Uma",9876542312l,"Savings",86900),
 				
 		};
 		
-		for(int i=0;i<3;i++) {
-			list[i].display();
-			//((AccountInformation) o).display();
+		for(Object o: list){
+			((BankAccounts)o).display();
 		}
 		
 	}

@@ -1,4 +1,5 @@
-package classProblems;
+package tasks.Day_4;
+
 class InvalidAgeException extends Exception{
 	public InvalidAgeException(String str) {
 		super(str);
@@ -31,7 +32,7 @@ class Bank_Account{
 }
 
 
-public class CustomExceptionSample {
+public class CustomException_1 {
 
 	static void check(int age) throws InvalidAgeException{
 		if(age < 18) {

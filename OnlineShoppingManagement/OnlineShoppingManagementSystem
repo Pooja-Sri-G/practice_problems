@@ -1,0 +1,123 @@
+package task;
+
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.LinkedList;
+
+class InvalidamountException extends RuntimeException{
+	InvalidamountException(String err){
+		super(err);
+	}
+}
+abstract class Product{
+	private int productId;
+	private String productName;
+	private float price;
+	
+	Product(int productId, String productName, float price){
+		if(price <= 0) {
+			throw new InvalidamountException("Price cannot be negative");
+		}
+		this.productId = productId;
+		this.productName = productName;
+		this.price = price;
+					
+	}
+	
+	int getId() {
+		return productId;
+	}
+	
+	String getProductName() {
+		return productName;
+	}
+	
+	float getPrice() {
+		return price;
+	}
+	
+	abstract float calculateDiscount();
+	
+	float finalPriceCalculation() {
+		return getPrice()-calculateDiscount();
+	}
+	void display() {
+		System.out.println("\nProduct ID = "+productId);
+		System.out.println("Product Name = "+productName);
+		System.out.println("Original Price = "+price);
+		System.out.println("Discount Amount = "+calculateDiscount());
+		System.out.println("Final Price = "+finalPriceCalculation());
+	}
+	
+}
+
+class Electronics extends Product{
+
+	Electronics(int productId, String productName, float price) {
+		super(productId, productName, price);
+	}
+
+	@Override
+	float calculateDiscount() {
+
+		return (getPrice()/100)*10;
+	}
+	
+}
+
+class Clothing extends Product{
+
+	Clothing(int productId, String productName, float price) {
+		super(productId, productName, price);
+	}
+
+	@Override
+	float calculateDiscount() {
+		return (getPrice()/100)*20;
+	}
+	
+}
+
+class Grocery extends Product{
+
+	Grocery(int productId, String productName, float price) {
+		super(productId, productName, price);
+	}
+
+	@Override
+	float calculateDiscount() {
+		// TODO Auto-generated method stub
+		return (getPrice()/100)*5;
+	}
+	
+}
+public class OnlineStoreSystem {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		LinkedList<Product> list = new LinkedList<>(
+				Arrays.asList(
+						new Electronics(101,"laptop",52000),
+						new Clothing(102,"Saree",10000),
+						new Grocery(103,"Vegetables",200)
+						));
+		
+		
+		try {
+            for (Product p : list) {
+                p.display();
+            }
+
+            Product p1 = new Grocery(104, "Fruits", -1400);
+            p1.display();
+
+        } catch (InvalidamountException e) {
+            System.out.println(e);
+        } finally {
+            System.out.println("\nProduct processing completed.");
+        }
+		
+	}
+
+}

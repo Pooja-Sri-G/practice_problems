@@ -78,19 +78,19 @@ class Banking{
 	
 
 
-	void display() {
-		System.out.println("\nAccount Number = "+accountNumber);
-		System.out.println("Account Holder Name = "+accountHolderName);
-		System.out.println("Mobile Number = "+mobileNumber);
-		System.out.println("Account Type = "+accountType);
-		System.out.println("Balance = "+balance);
-		System.out.println("Bank Name = "+bankName);
-	}
 	
 }
 public class BankingSystemDesign {
 
 	static String bankName = "Mariamman Indian Bank";
+	static void display(Banking b) {
+		System.out.println("\nAccount Number = "+b.getAccNo());
+		System.out.println("Account Holder Name = "+b.getname());
+		System.out.println("Mobile Number = "+b.getMobile());
+		System.out.println("Account Type = "+b.getType());
+		System.out.println("Balance = "+b.getBalance());
+		System.out.println("Bank Name = "+bankName);
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
@@ -110,9 +110,9 @@ public class BankingSystemDesign {
 		
 		b1.deposit(-9876);
 		b2.withdraw(-900);
-		b1.display();
-		b2.display();
-		b3.display();
+		display(b1);
+		display(b2);
+		display(b3);
 		
 		
 	}

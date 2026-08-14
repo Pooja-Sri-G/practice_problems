@@ -1,8 +1,8 @@
-package classProblems;
+package tasks.Day_4;
 
 import java.util.*;
 
-public class CollectionExamples {
+public class Collections {
 
 	static void bubbleSort() {
 		List<Integer> list = new ArrayList<>();

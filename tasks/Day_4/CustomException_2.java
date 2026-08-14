@@ -1,7 +1,6 @@
-package classProblems;
+package tasks.Day_4;
 
 import java.util.*;
-import java.lang.*;
 class InvalidMarkException extends RuntimeException{
 	public InvalidMarkException(String str) {
 		super(str);
@@ -31,7 +30,7 @@ class IncorrectPasswordException extends RuntimeException{
 		super(err);
 	}
 }
-public class CustomExceptionSample2 {
+public class  CustomException_2 {
 
 	static void marks() {
 		Scanner sc = new Scanner(System.in);
@@ -69,7 +68,7 @@ public class CustomExceptionSample2 {
 		}catch(Exception e){
 			System.out.println(e);
 		}
-
+		sc.close();
 	}
 	static void password(){
 		Scanner input = new Scanner(System.in);
@@ -100,6 +99,7 @@ public class CustomExceptionSample2 {
 		}else {
 			throw new InvalidPasswordException("Invalid password");
 		}
+		input.close();
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

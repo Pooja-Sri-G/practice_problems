@@ -1,4 +1,4 @@
-package classProblems;
+package tasks.Day_4;
 
 import java.util.Arrays;
 import java.util.LinkedList;
