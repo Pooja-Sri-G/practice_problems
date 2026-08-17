@@ -1,4 +1,4 @@
-package classProblems;
+package tasks.Day_1;
 
 
 class Product{

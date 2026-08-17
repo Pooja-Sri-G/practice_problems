@@ -1,4 +1,4 @@
-package classProblems;
+package tasks.Day_1;
 class Student{
 	int std_id;
 	String std_name;
@@ -48,7 +48,7 @@ class Student{
 		
 	}
 }
-public class StudentResult {
+public class student_result_management {
 
 	public static void main(String[] args) {
 		

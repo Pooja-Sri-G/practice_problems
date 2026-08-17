@@ -1,4 +1,4 @@
-package classProblems;
+package tasks.Day_3;
 
 abstract class Employeee{
 	private String name;

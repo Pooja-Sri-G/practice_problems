@@ -1,4 +1,4 @@
-package classProblems;
+package tasks.Day_1;
 class BankAccount{
 	int acc_no;
 	String name;

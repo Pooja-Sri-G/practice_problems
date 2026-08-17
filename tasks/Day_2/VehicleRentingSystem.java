@@ -1,4 +1,4 @@
-package classProblems;
+package tasks.Day_2;
 import java.util.*;
 abstract class Vehicle{
 	int no;

@@ -1,4 +1,4 @@
-package classProblems;
+package tasks.Day_2;
 
 interface College{
 	void cashing();
@@ -29,7 +29,7 @@ class stafff implements College, Department,exam{
 		System.out.println("Marks");
 	}
 }
-public class abstractionSample {
+public class Abstraction {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

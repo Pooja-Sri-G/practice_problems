@@ -1,4 +1,4 @@
-package classProblems;
+package tasks.Day_2;
 
 class Person{
 	String name = "AAA";
@@ -47,7 +47,7 @@ class Visitor extends Customer{
 		
 	}
 }
-public class MultilevelInheritance {
+public class Inheritance {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
