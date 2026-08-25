@@ -12,9 +12,10 @@ public class ExpressionConvertion {
             return 1;
         }
         return 0;
+
     }
-    public static void main(String[] args){
-        String str = "a*b+(c-d)/e%f";
+    static StringBuilder postfixConversion(String str){
+        
         StringBuilder result = new StringBuilder();
         Stack<Character> stack = new Stack<>();
         for(char c:str.toCharArray()){
@@ -32,7 +33,7 @@ public class ExpressionConvertion {
                 stack.pop(); // pop open paranthesis
             }
             else{
-                while(!stack.isEmpty() && (precedence(stack.peek()) > precedence(c))){
+                while(!stack.isEmpty() && (precedence(stack.peek()) >= precedence(c))){
                     result.append(stack.pop());
                 }
                 stack.push(c);
@@ -43,6 +44,28 @@ public class ExpressionConvertion {
             result.append(stack.pop());
         }
 
-        System.out.println(result.toString());
+        return result;
+    }
+    static StringBuilder prefixConversion(String str){
+
+        StringBuilder sb = new StringBuilder(str);
+        sb.reverse();
+        
+        for(int i=0;i<sb.length();i++){
+            if(sb.charAt(i) == '('){
+                sb.setCharAt(i, ')');
+            }
+            else if(sb.charAt(i) == ')'){
+                sb.setCharAt(i,'(');
+            }
+        }
+        StringBuilder result = postfixConversion(sb.toString());
+        result.reverse();
+        return result;
+    }
+    public static void main(String[] args){
+        String str = "a*b+(c-d)/e%f";
+        System.out.println("Postfix = "+postfixConversion(str));
+        System.out.println("Prefix = "+prefixConversion(str));
     }
 }
