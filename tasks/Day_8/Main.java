@@ -1,3 +1,4 @@
+package tasks.Day_8;
 import java.util.*;
 class Student{
     String name;

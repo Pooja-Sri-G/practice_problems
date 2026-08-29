@@ -1,4 +1,4 @@
-package practice_programs;
+package tasks.Day_8;
 import java.util.*;
 
 

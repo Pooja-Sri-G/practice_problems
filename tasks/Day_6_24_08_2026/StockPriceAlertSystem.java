@@ -24,5 +24,6 @@ public class StockPriceAlertSystem {
         for(int i=0;i<n;i++){
             System.out.print(freq[i]+" ");
         }
+        sc.close();
     }
 }

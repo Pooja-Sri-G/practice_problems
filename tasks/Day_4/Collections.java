@@ -65,6 +65,7 @@ public class Collections {
 		for(int num:list) {
 			System.out.print(num+" ");
 		}
+		sc.close();
 	}
 	// Swapping
 	static void arraySegregate2() {
@@ -96,6 +97,7 @@ public class Collections {
 		for(int num:list) {
 			System.out.print(num+" ");
 		}
+		sc.close();
 	}
 	
 	public static void main(String[] args) {

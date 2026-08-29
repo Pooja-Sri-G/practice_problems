@@ -26,10 +26,6 @@ public class QueueSample {
             queue.offer(temp+"1");
         }
     }
-    static void arraydequesample(){
-        Deque<Integer> queue = new ArrayDeque();
-
-    }
     
     static void printer(){
         Scanner sc = new Scanner(System.in);
